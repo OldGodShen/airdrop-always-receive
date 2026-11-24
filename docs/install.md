@@ -39,10 +39,20 @@ adb logcat -s AirDropAlwaysReceive
 Expected lines include:
 
 ```text
-hooks installed
-permanent receive enabled
+target matched package=com.miui.mishare.connectivity
+hooks installed process=com.miui.mishare.connectivity
+hook families registered
+state reason=install enabled=true
 receiver authorization kept
 ```
+
+If you only see `target matched` but not `hooks installed`, the target
+application class was not hooked. Scope the module to
+`com.miui.mishare.connectivity`, then force-stop and reopen Mi Share.
+
+If you see `class missing` or `field missing`, the installed Mi Share build is
+not the expected 5.5.0 layout. The module deliberately does not continue with
+partially applied state.
 
 ## Verify discovery
 
@@ -57,6 +67,17 @@ If it does not appear, collect:
 adb logcat -d -s AirDropAlwaysReceive AirDropService `
   AirDropShareBridge AirDropBleAdvertiser NsdAdvertiser AwdlManager MiShareService
 ```
+
+## Diagnose by symptom
+
+| Symptom | First check |
+|---|---|
+| Switch on, no `receiver authorization kept` | module not scoped or hooks not loaded |
+| `class missing` for `AirDropService` | Mi Share version mismatch |
+| `field missing` for `l0` | obfuscated field renamed |
+| authorization kept but no discovery | `xos0` unavailable or Bluetooth/Wi-Fi off |
+| discovery dies on screen off | screen-state hook not applied |
+| discovery dies after leaving page | stop-action hook not applied |
 
 ## Disable
 

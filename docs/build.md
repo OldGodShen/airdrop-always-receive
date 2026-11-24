@@ -25,6 +25,22 @@ This file is ignored by git.
 .\gradlew.bat :app:assembleDebug
 ```
 
+If the wrapper JAR is unavailable, fetch the toolchain into a cache outside the
+repository:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\fetch-build-tools.ps1
+```
+
+Then build with the cached Gradle:
+
+```powershell
+$env:JAVA_HOME = "C:\Program Files\Zulu\zulu-17"
+$env:ANDROID_SDK_ROOT = "$env:LOCALAPPDATA\AirDropAlwaysReceiveBuild\android-sdk"
+$env:ANDROID_HOME = $env:ANDROID_SDK_ROOT
+& "$env:LOCALAPPDATA\AirDropAlwaysReceiveBuild\gradle-8.11.1\bin\gradle.bat" :app:assembleDebug
+```
+
 ## Output
 
 ```text

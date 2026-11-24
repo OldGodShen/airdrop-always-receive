@@ -92,6 +92,12 @@ background. Full test cases are in [docs/testing.md](docs/testing.md).
 
 ## Status
 
-Code and documentation are provided as a reproducible prototype. The design is
-based on static analysis of the supplied 5.5.0 APK. Runtime behavior still
-needs validation on the target device and ROM.
+Code compiles and produces a valid LSPosed module APK:
+
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
+
+The design is based on static analysis of the supplied 5.5.0 APK. Runtime
+behavior on a specific device and ROM still needs validation with
+[docs/testing.md](docs/testing.md).

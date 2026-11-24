@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AirDrop Always Receive</string>
+    <string name="subtitle">Keep Xiaomi Mi Share discoverable by Apple AirDrop</string>
+    <string name="switch_title">Keep receiver active</string>
+    <string name="switch_summary">Keeps the AirDrop-compatible receiver alive after leaving the Mi Share receive page.</string>
+    <string name="status_unknown">Waiting for Mi Share process</string>
+    <string name="status_enabled">Permanent receive enabled</string>
+    <string name="status_disabled">Permanent receive disabled</string>
+    <string name="status_waiting">Enabled — waiting for Mi Share process</string>
+    <string name="status_bound">Enabled — receiver state applied</string>
+    <string name="scope_note">LSPosed scope: com.miui.mishare.connectivity</string>
+    <string name="apple_note">Apple still requires AirDrop to be set to Everyone (10 minutes) for discovery.</string>
+    <string name="diagnostics">Diagnostics</string>
+    <string name="refresh">Refresh</string>
+</resources>
