@@ -1,0 +1,23 @@
+# Build output
+.gradle/
+build/
+*/build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+
+# Signing material
+*.jks
+*.keystore
+keystore.properties
+
+# Local reverse-engineering inputs and artifacts
+*.apk
+jadx_out/
+apktool_out/
+
+# OS noise
+.DS_Store
+Thumbs.db
