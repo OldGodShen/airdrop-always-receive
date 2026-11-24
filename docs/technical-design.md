@@ -169,11 +169,15 @@ All hooks are idempotent. Re-entering `MiShareService.onCreate` or
 
 ## 8. Compatibility strategy
 
-The implementation is intentionally version-locked. A future Mi Share update
-that renames obfuscated classes or fields should fail closed:
+The implementation is intentionally written against one build. The current
+prototype records the target version in logs but does not hard-block a version
+mismatch. A future Mi Share update that renames obfuscated classes or fields
+should degrade safely because each hook reports a missing class/field instead
+of silently applying partial state:
 
 - log a clear version mismatch
 - do not alter receive behavior
 - keep the stock page-bound behavior intact
 
-An adapter layer can be added later for additional builds.
+An adapter layer, plus a hard version gate, can be added later for additional
+builds.

@@ -29,6 +29,15 @@
 6. Open Mi Share once.
 7. Enable **Keep receiver active** in the module.
 
+The 0.1.0 debug APK built during development has SHA-256:
+
+```text
+83B4D828A56F0DC125F1BE7A770929307B4737FE8C9E3121678186BBEBE40694
+```
+
+This hash changes after any rebuild, so treat it as a build record rather than
+an authenticity guarantee.
+
 ## Verify hooks loaded
 
 ```powershell
